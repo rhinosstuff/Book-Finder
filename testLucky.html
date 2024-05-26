@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Button Example</title>
+    <style>
+        /* Styles for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* Style for the button */
+        .modal-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h2>Modal Title</h2>
+            <p>This is a modal window. Click the button below to close it.</p>
+                <!-- Include the JavaScript file -->
+            <script src="./assets/js/lucky.js"></script>
+            <div id="bookInfo">
+                <img id="coverArt" src="" alt="Book Cover">
+                <h3 id="title"></h3>
+                <p id="author"></p>
+            </div>
+
+            <button id="closeModal" class="modal-button">Close</button>
+        </div>
+    </div>
+
+    <!-- Button to open the modal -->
+    <button id="openModal" class="modal-button">Let's Get Lucky</button>
+
+    <script>
+        // Get the modal element
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModal");
+
+        // Get the button that closes the modal
+        var closeBtn = document.getElementById("closeModal");
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        };
+
+        // When the user clicks the close button, close the modal
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        };
+    </script>
+
+
+</body>
+</html>
