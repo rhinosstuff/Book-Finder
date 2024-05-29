@@ -4,8 +4,6 @@ const bookButton = document.querySelector('#bookButton')
 const modalContent = document.querySelector('#modalContent')
 const feelingLuckyButton = document.querySelector('#genreDropdown')
 
-console.log(bookInput.value)
-
 function landingPage(queriedBooks) {
   // Clear existing content in bookMain
   bookMain.innerHTML = ""
@@ -53,6 +51,8 @@ function modalDisplay(queriedBooks) {
   title.textContent = item.volumeInfo.title
   let author = document.createElement('p')
   author.textContent = item.volumeInfo.authors
+  let description = document.createElement('p')
+  description.textContent = item.volumeInfo.description
 
   modalContent.append(title)
   modalContent.append(author)
@@ -64,6 +64,7 @@ function modalDisplay(queriedBooks) {
     modalContent.append(thumbnail)
   }
 
+  modalContent.append(description)
   // Showing that the Modal Display was called
   console.log('Modal Display Function Called');
 }
