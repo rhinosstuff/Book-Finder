@@ -1,0 +1,42 @@
+/* Font Import */
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+
+:root {
+    --forest:#4a6741;
+    --tan: #D2B48C;
+    --royalBlue: #1B4079;
+    --dark: #333;
+}
+
+* {
+    font-size: 18px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    font-family: "Cedarville Cursive", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--forest);
+    color: var(--tan);
+    padding: 40px;
+}
+
+.header h1 {
+    padding-left: 40px;
+}
+
+.footer {
+   background-color: var(--forest);
+   color: var(--royalBlue);
+   text-shadow: -2px 2px var(--tan);
+   padding: 25px;
+   text-align: center;
+}
+
+.footer a {
+    padding-right: 100px;
+    font-weight: 400;
+}
