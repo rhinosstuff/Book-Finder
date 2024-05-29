@@ -24,11 +24,11 @@
       <img style="height: 500px" src="./assets/images/Bookshelf_Textbook_Stock.jpg" alt="well organized bookshelf with color" />
     </div>
     
-    <main class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
+    <main id="bookMain" class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
       <!-- Dynamically Displayed Elements-->
     </main>
 
-    <!-- Test Form -->
+    <!-- Books Form -->
     <form class="grid-container grid-x grid-padding-x">
       <label class="small-3 cell">Book Search
         <input id="bookInput" type="text" placeholder="Book Title,   Author,   Word" aria-describedby="exampleHelpText">
@@ -38,9 +38,19 @@
       </div>
     </form>
 
-    <!-- Lucky Modal -->
-    <div id="feeling_lucky" class="reveal" data-reveal>
-      <div id="modalContent">
+    <!-- Book Modal -->
+    <div id="bookModal" class="reveal" data-reveal>
+      <div id="bookModalContent">
+        <!-- Dynamically Displayed Elements-->
+      </div>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- Movie Modal -->
+    <div id="movieModal" class="reveal" data-reveal>
+      <div id="movieModalContent">
         <!-- Dynamically Displayed Elements-->
       </div>
       <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -84,8 +94,10 @@
       $(document).foundation();
     </script>
     <!-- Our JavaScript -->
-    <script src="./assets/js/googleBooksAPI.js"></script>
+    <script src="./assets/js/bookAPI.js"></script>
+    <script src="./assets/js/bookDisplay.js"></script>
     <script src="./assets/js/movieAPI.js"></script>
+    <script src="./assets/js/movieDisplay.js"></script>
     <script src="./assets/js/script.js"></script>
     
   </body>

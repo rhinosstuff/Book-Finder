@@ -2,6 +2,7 @@
 const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q='
 
 // startIndex & maxResults need to impliment
+// https://www.googleapis.com/books/v1/volumes?q=filter=ebooks&maxResults=40&startIndex=0&orderBy=relevance&projection=lite&&key=AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ&subject=
 
 // Function to perform a search using the Google Books API
 function searchBooks(query, displayFunction) {
@@ -25,10 +26,10 @@ function searchBooks(query, displayFunction) {
       }
 
       // Call the appropriate display function based on the context
-      if (displayFunction === 'landingPage') {
-        landingPage(data.items)
-      } else if (displayFunction === 'modalDisplay') {
-        modalDisplay(data.items)
+      if (displayFunction === 'bookDisplay') {
+        bookDisplay(data.items)
+      } else if (displayFunction === 'bookModal') {
+        bookModal(data.items)
       }
 
       // Displays what we are recieving in the console
