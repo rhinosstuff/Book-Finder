@@ -1,7 +1,16 @@
 // Define the base Uri for the Google Books API
-const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q='
+const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q=filter=' + filter + '&orderBy=' + orderBy + '&printType=' + printType + '&projection=' + projection + '&key=' + key + '&startIndex=' + startIndex + '&maxResults=' + maxResults + '&subject=' + subject + '&q=javascript'
 
-// startIndex & maxResults need to impliment
+// startIndex & maxResults need to implement
+let startIndex = 0
+let maxResults = 40
+let filter = 'ebooks'
+let orderBy = 'relevance'
+let printType = 'books'
+let projection = 'lite'
+let key = 'AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ'
+let subject = 'javascript'
+
 
 // Function to perform a search using the Google Books API
 function searchBooks(query, displayFunction) {
@@ -31,7 +40,7 @@ function searchBooks(query, displayFunction) {
         modalDisplay(data.items)
       }
 
-      // Displays what we are recieving in the console
+      // Displays what we are receiving in the console
       console.log('This is the data:', data.items)
     })
     .catch(error => {

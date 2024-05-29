@@ -103,3 +103,5 @@ buttonElement.addEventListener('click', openModal);
 // Add a click event listener to the close button in the modal to close it
 const closeButtonElement = document.getElementById('close-button');
 closeButtonElement.addEventListener('click', closeModal);
+
+const apikey = 'AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ'
