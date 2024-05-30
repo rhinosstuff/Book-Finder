@@ -1,5 +1,20 @@
+// const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q=filter=' + filter + '&orderBy=' + orderBy + '&printType=' + printType + '&projection=' + projection + '&key=' + key + '&startIndex=' + startIndex + '&maxResults=' + maxResults + '&subject=' + subject + '&q=javascript'
+
+let startIndex = 0
+let maxResults = 40
+let filter = 'filter=ebooks'
+let orderBy = 'relevance'
+// let printType = 'books'
+let projection = 'lite'
+let key = 'AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ'
+// let subject = 'javascript'
+
+
+
+
 // Define the base Uri for the Google Books API
 const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q='
+const uriFilters = `&${filter}&maxResults=${maxResults}&startIndex=${startIndex}&orderBy=${orderBy}&projection=${projection}&key=${key}`
 
 // startIndex & maxResults need to impliment
 // https://www.googleapis.com/books/v1/volumes?q=filter=ebooks&maxResults=40&startIndex=0&orderBy=relevance&projection=lite&&key=AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ&subject=
@@ -7,7 +22,8 @@ const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q='
 // Function to perform a search using the Google Books API
 function searchBooks(query, displayFunction) {
   // Construct the full Uri with the search query
-  const fullUri = booksApiUri + encodeURIComponent(query)
+  const fullUri = booksApiUri + query + uriFilters
+  console.log(fullUri)
 
   // Perform the fetch request
   fetch(fullUri)

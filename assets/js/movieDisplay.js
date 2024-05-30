@@ -28,7 +28,7 @@ function movieModal(queriedMovie) {
 
 // Event listener for dynamically displayed book titles
 bookMain.addEventListener('click', function(event) {
-  if (event.target.classList.contains('book-title')) {
+  if (event.target.classList.contains('movie-click')) {
     const title = event.target.textContent
     searchMovies(title)
     let modal = new Foundation.Reveal($('#movieModal'))
