@@ -14,13 +14,13 @@ function bookDisplay(queriedBooks) {
     let item = queriedBooks[i]
     
     let card = document.createElement('div')
-    card.className = "cell medium-4"
+    card.className = 'cell medium-4'
     let container = document.createElement('div')
-    container.className = "callout"
+    container.className = 'callout'
     container.setAttribute('data-equalizer-watch', '')
     let title = document.createElement('h5')
     title.textContent = item.volumeInfo.title
-    title.classList.add('book-title')
+    title.classList = 'movie-click'
     let author = document.createElement('p')
     author.textContent = item.volumeInfo.authors
 
