@@ -1,15 +1,16 @@
 // Define the base Uri for the TMDB Movie APIUri
 const moviesApiUri = 'https://api.themoviedb.org/3/search/movie'
-
-const movieMain = document.querySelector('#movieMain')
-
 // TMDB API key
 const apiKey = '8f28bcba394943dd4a6e637ef1ad8c83'
+
+const movieMain = document.getElementById('movieMain')
+let movieList = []
+let movieIndex = 0
 
 // Function to perform a search using the TMDB Movie API
 function searchMovies(query) {
   // Construct the full Uri with the search query and API key
-  const fullUri = `${moviesApiUri}?api_key=${apiKey}&query=${encodeURIComponent(query)}`
+  const fullUri = `${moviesApiUri}?api_key=${apiKey}&query=${query}`
   console.log(fullUri)
 
   // Perform the fetch request
@@ -28,10 +29,12 @@ function searchMovies(query) {
         return
       }
       
-      movieModal(data.results)
+      movieList = data.results
+      movieIndex = 0
+      movieModal(movieList, movieIndex)
 
       // Displays what we are recieving in the console
-      console.log('This is the data:', data.results)
+      console.log('This is the MOVIE data:', data.results)
     })
     .catch(error => {
       // Handle any errors that occurred during the fetch

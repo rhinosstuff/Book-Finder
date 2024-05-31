@@ -36,12 +36,12 @@ function searchBooks(query, displayFunction) {
       // Call the appropriate display function based on the context
       if (displayFunction === 'bookDisplay') {
         bookDisplay(data.items)
-      } else if (displayFunction === 'bookModal') {
-        bookModal(data.items)
+      } else if (displayFunction === 'bookModalDisplay') {
+        bookModalDisplay(data.items)
       }
 
       // Displays what we are recieving in the console
-      console.log('This is the data:', data.items)
+      console.log('This is the BOOK data:', data.items)
     })
     .catch(error => {
       // Handle any errors that occurred during the fetch
