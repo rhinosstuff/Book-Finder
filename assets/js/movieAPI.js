@@ -10,6 +10,7 @@ const apiKey = '8f28bcba394943dd4a6e637ef1ad8c83'
 function searchMovies(query) {
   // Construct the full Uri with the search query and API key
   const fullUri = `${moviesApiUri}?api_key=${apiKey}&query=${encodeURIComponent(query)}`
+  console.log(fullUri)
 
   // Perform the fetch request
   fetch(fullUri)

@@ -1,23 +1,15 @@
-// const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q=filter=' + filter + '&orderBy=' + orderBy + '&printType=' + printType + '&projection=' + projection + '&key=' + key + '&startIndex=' + startIndex + '&maxResults=' + maxResults + '&subject=' + subject + '&q=javascript'
-
-let startIndex = 0
+// List of uri filters
+const filter = 'ebooks'
 let maxResults = 40
-let filter = 'filter=ebooks'
-let orderBy = 'relevance'
-// let printType = 'books'
-let projection = 'lite'
-let key = 'AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ'
-// let subject = 'javascript'
-
-
-
+let startIndex = 0
+const orderBy = 'relevance'
+const projection = 'lite'
+const key = 'AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ'
 
 // Define the base Uri for the Google Books API
 const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q='
-const uriFilters = `&${filter}&maxResults=${maxResults}&startIndex=${startIndex}&orderBy=${orderBy}&projection=${projection}&key=${key}`
-
-// startIndex & maxResults need to impliment
-// https://www.googleapis.com/books/v1/volumes?q=filter=ebooks&maxResults=40&startIndex=0&orderBy=relevance&projection=lite&&key=AIzaSyBWECKKuqlwFWHb3zl3JC7lEyPPBCSkZAQ&subject=
+// Applying filters to uri
+const uriFilters = `&filter=${filter}&maxResults=${maxResults}&startIndex=${startIndex}&orderBy=${orderBy}&projection=${projection}&key=${key}`
 
 // Function to perform a search using the Google Books API
 function searchBooks(query, displayFunction) {

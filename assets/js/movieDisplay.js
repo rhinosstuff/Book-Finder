@@ -34,7 +34,7 @@ bookMain.addEventListener('click', function(event) {
     let modal = new Foundation.Reveal($('#movieModal'))
     modal.open()
   }
-});
+})
 
 // Clear modal content when closed
 $('#movieModal').on('closed.zf.reveal', function() {
