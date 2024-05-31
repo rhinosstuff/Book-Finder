@@ -2,7 +2,7 @@ const bookMain = document.querySelector('#bookMain')
 const bookInput = document.querySelector('#bookInput')
 const bookButton = document.querySelector('#bookButton')
 const bookModalContent = document.querySelector('#bookModalContent')
-const bookModalButton = document.querySelector('#genreDropdown')
+const bookDropdown = document.querySelector('#genreDropdown')
 
 // Google Books HTML
 function bookDisplay(queriedBooks) {
@@ -37,7 +37,7 @@ function bookDisplay(queriedBooks) {
     
     bookMain.append(card)
 
-    // Showing that the displayed the landing page
+    // Showing that Book Display was called
     console.log('Book Display Function Called')
   }
 }
@@ -88,20 +88,28 @@ bookButton.addEventListener('click', function(event) {
 })
 
 // Event listener for the genreDropdown click
-bookModalButton.addEventListener('click', function(event) {
+bookDropdown.addEventListener('click', function(event) {
   event.preventDefault()
   event.stopPropagation()
 
   let selectedValue = event.target.getAttribute('data-value')
   if (selectedValue) {
     // Close the dropdown
-    document.getElementById('genreDropdown').classList.remove('is-open')
+    bookDropdown.classList.remove('is-open')
     // Open the modal
     searchBooks('subject:' + selectedValue, 'bookModal')
     let modal = new Foundation.Reveal($('#bookModal'))
     modal.open()
   }
-});
+})
+
+// Event listner to close genreDropdown when clicked off
+document.addEventListener('click', function(event) {
+  // Check if the click is outside the dropdown
+  if (!bookDropdown.contains(event.target)) {
+    bookDropdown.classList.remove('is-open')
+  }
+})
 
 // Clear modal content when closed
 $('#bookModal').on('closed.zf.reveal', function() {
