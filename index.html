@@ -15,50 +15,78 @@
   <body>
     <!--Nav Bar-->
     <div class="header">
-    <header>
-      <h1>Book Finder</h1>
-    </header>
+      <header>
+        <h1>Book Finder</h1>
+      </header>
     </div>
+
     <!--Header Background-->
     <div class="header-image">
       <img src="./assets/images/Bookshelf_Textbook_Stock.jpg" alt="well organized bookshelf with color" />
-  </div>
-    <main class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
+    </div>
+
+    <div>
+      <!-- Books Form -->
+      <form class="small-6 column grid-container grid-x grid-padding-x">
+        <label class="small-3 cell">Book Search
+          <input id="bookInput" type="text" placeholder="Book Title,   Author,   Word" aria-describedby="exampleHelpText">
+        </label>
+        <div class="input-group-button">
+          <input id="bookButton" type="submit" class="button" value="Submit">
+        </div>
+      </form>
+
+      <!-- Feeling Lucky Button Drop List -->
+      <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+              <div class="dropdown-pane" id="genreDropdown" data-dropdown data-auto-focus="true">
+                  <ul class="vertical menu">
+                    <li><a href="#" data-value="Adventure">Adventure</a></li>
+                    <li><a href="#" data-value="Biography">Biography</a></li>
+                    <li><a href="#" data-value="Comedy">Comedy</a></li>
+                    <li><a href="#" data-value="Fantasy">Fantasy</a></li>
+                    <li><a href="#" data-value="Fiction">Fiction</a></li>
+                    <li><a href="#" data-value="Horror">Horror</a></li>
+                    <li><a href="#" data-value="Mystery">Mystery</a></li>
+                    <li><a href="#" data-value="Romance">Romance</a></li>
+                    <li><a href="#" data-value="Science-Fiction">Science-Fiction</a></li>
+                    <li><a href="#" data-value="Thriller">Thriller</a></li>
+                    <li><a href="#" data-value="Western">Western</a></li>
+                  </ul>
+              </div>
+              <p class=""><button class="button" data-open="genreDropdown">Feeling Lucky</button></p>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    <main id="bookMain" class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
       <!-- Dynamically Displayed Elements-->
     </main>
 
-    <!-- Test Form -->
-    <form class="grid-container grid-x grid-padding-x">
-      <label class="small-3 cell">Book Search
-        <input id="bookInput" type="text" placeholder="Book Title,   Author,   Word" aria-describedby="exampleHelpText">
-      </label>
-      <div class="input-group-button">
-        <input id="bookButton" type="submit" class="button" value="Submit">
+    <!-- Book Modal -->
+    <div id="bookModal" class="reveal" data-reveal>
+      <div id="bookModalContent">
+        <!-- Dynamically Displayed Elements-->
       </div>
-    </form>
-
-    <!--Feeling Lucky-->
-    <form class="grid-container grid-x grid-padding-x">
-      <label class="small-3 cell">Random by genre
-        <input id="bookInput" type="text" placeholder="Choose a genre" aria-describedby="exampleHelpText">
-      </label>
-      <div class="input-group-button">
-        <input id="bookButton" type="submit" class="button" value="Feeling Lucky">
-      </div>
-    </form>
-
-    <!-- Test Modal -->
-    <div class="reveal" id="exampleModal1" data-reveal>
-      <h1>Awesome. I Have It.</h1>
-      <p class="lead">Your couch. It is mine.</p>
-      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <p><button class="button float-center" data-open="exampleModal1">Click me for a modal</button></p>
-    <footer>
-      <!--Footer-->
+
+    <!-- Movie Modal -->
+    <div id="movieModal" class="reveal" data-reveal>
+      <div id="movieModalContent">
+        <!-- Dynamically Displayed Elements-->
+      </div>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <!--Footer-->
+    <footer> 
       <div class="footer">
           <a href="#">|Andrea's Portfolio|</a>
           <a href="#">|Ryan's Portfolio|</a>
@@ -66,6 +94,7 @@
           <a href="#">|Andrew's Portfolio|</a>
       </div>
     </footer>
+
     <!-- jQuery JavaScript -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
@@ -77,7 +106,11 @@
       $(document).foundation();
     </script>
     <!-- Our JavaScript -->
-    <script src="./assets/js/googleBooksAPI.js"></script>
+    <script src="./assets/js/bookAPI.js"></script>
+    <script src="./assets/js/bookDisplay.js"></script>
+    <script src="./assets/js/movieAPI.js"></script>
+    <script src="./assets/js/movieDisplay.js"></script>
+    <script src="./assets/js/script.js"></script>
     
   </body>
 </html> 
