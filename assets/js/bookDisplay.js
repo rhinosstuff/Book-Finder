@@ -15,12 +15,15 @@ function bookDisplay(queriedBooks) {
     
     let card = document.createElement('div')
     card.className = 'cell medium-4'
+    
     let container = document.createElement('div')
     container.className = 'callout'
     container.setAttribute('data-equalizer-watch', '')
+    
     let title = document.createElement('h5')
     title.textContent = item.volumeInfo.title
     title.classList = 'movie-click'
+    
     let author = document.createElement('p')
     author.textContent = item.volumeInfo.authors
 
@@ -34,7 +37,19 @@ function bookDisplay(queriedBooks) {
       thumbnail.src = item.volumeInfo.imageLinks.thumbnail
       container.append(thumbnail)
     }
+
+    let buyBookContainer = document.createElement('h4')
     
+    let buyBookLink = document.createElement('a')
+    buyBookLink.textContent = 'Buy Now'
+    buyBookLink.href = item.saleInfo.buyLink
+    
+    let description = document.createElement('textarea')
+    description.textContent = item.volumeInfo.description
+    
+    container.append(buyBookContainer)
+    buyBookContainer.append(buyBookLink)
+    container.append(description)
     bookMain.append(card)
 
     // Showing that Book Display was called
@@ -52,10 +67,9 @@ function bookModal(queriedBooks) {
   
   let title = document.createElement('h5')
   title.textContent = item.volumeInfo.title
+  
   let author = document.createElement('p')
   author.textContent = item.volumeInfo.authors
-  let description = document.createElement('p')
-  description.textContent = item.volumeInfo.description
 
   bookModalContent.append(title)
   bookModalContent.append(author)
@@ -67,7 +81,19 @@ function bookModal(queriedBooks) {
     bookModalContent.append(thumbnail)
   }
 
+  let buyBookContainer = document.createElement('h4')
+  
+  let buyBookLink = document.createElement('a')
+  buyBookLink.textContent = 'Buy Now'
+  buyBookLink.href = item.saleInfo.buyLink
+  
+  let description = document.createElement('textarea')
+  description.textContent = item.volumeInfo.description
+
+  bookModalContent.append(buyBookContainer)
+  buyBookContainer.append(buyBookLink)
   bookModalContent.append(description)
+  
   // Showing that the Modal Display was called
   console.log('Book Modal Display Function Called')
 }
@@ -78,13 +104,14 @@ bookButton.addEventListener('click', function(event) {
   event.stopPropagation()
 
   let searchQuery = ''
-  if (bookInput.value === "") {
-      // displayAlert('Please enter a valid search.')    
+  if (bookInput.value === '') {
+    // displayAlert('Please enter a valid search.')    
   } else {
-      searchQuery = bookInput.value.split(' ').join('+')
-      // calling the function
-      searchBooks(searchQuery, 'bookDisplay')
+    searchQuery = bookInput.value.split(' ').join('+')
+    // calling the function
+    searchBooks(searchQuery, 'bookDisplay')
   }
+  bookInput.value = ''
 })
 
 // Event listener for the genreDropdown click
