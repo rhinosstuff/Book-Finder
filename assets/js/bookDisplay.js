@@ -1,8 +1,9 @@
-const bookMain = document.querySelector('#bookMain')
-const bookInput = document.querySelector('#bookInput')
-const bookButton = document.querySelector('#bookButton')
-const bookModalContent = document.querySelector('#bookModalContent')
-const bookDropdown = document.querySelector('#genreDropdown')
+const bookMain = document.getElementById('bookMain')
+const bookInput = document.getElementById('bookInput')
+const bookButton = document.getElementById('bookButton')
+const bookModal = document.getElementById('bookModal')
+const bookModalContent = document.getElementById('bookModalContent')
+const bookDropdown = document.getElementById('genreDropdown')
 
 // Google Books HTML
 function bookDisplay(queriedBooks) {
@@ -57,8 +58,9 @@ function bookDisplay(queriedBooks) {
   }
 }
 
-// Google Books Modal
-function bookModal(queriedBooks) {
+// Book Modal
+function bookModalDisplay(queriedBooks) {
+  // Clear exsisting content in bookModal
   bookModalContent.innerHTML = ""
   
   // Display the results
@@ -82,7 +84,6 @@ function bookModal(queriedBooks) {
   }
 
   let buyBookContainer = document.createElement('h4')
-  
   let buyBookLink = document.createElement('a')
   buyBookLink.textContent = 'Buy Now'
   buyBookLink.href = item.saleInfo.buyLink
@@ -108,7 +109,6 @@ bookButton.addEventListener('click', function(event) {
     // displayAlert('Please enter a valid search.')    
   } else {
     searchQuery = bookInput.value.split(' ').join('+')
-    // calling the function
     searchBooks(searchQuery, 'bookDisplay')
   }
   bookInput.value = ''
@@ -123,8 +123,10 @@ bookDropdown.addEventListener('click', function(event) {
   if (selectedValue) {
     // Close the dropdown
     bookDropdown.classList.remove('is-open')
+    
     // Open the modal
-    searchBooks('subject:' + selectedValue, 'bookModal')
+    searchBooks('subject:' + selectedValue, 'bookModalDisplay')
+    
     let modal = new Foundation.Reveal($('#bookModal'))
     modal.open()
   }
@@ -132,6 +134,7 @@ bookDropdown.addEventListener('click', function(event) {
 
 // Event listner to close genreDropdown when clicked off
 document.addEventListener('click', function(event) {
+  
   // Check if the click is outside the dropdown
   if (!bookDropdown.contains(event.target)) {
     bookDropdown.classList.remove('is-open')

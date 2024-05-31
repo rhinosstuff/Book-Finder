@@ -54,8 +54,8 @@
             </ul>
           </div>
           <p class=""><button class="button" data-open="genreDropdown">Feeling Lucky</button></p>
-        </div>
       </div>
+    </div>
     
     <main id="bookMain" class="grid-x grid-margin-x" data-equalizer data-equalize-on="medium" id="test-eq">
       <!-- Dynamically Displayed Elements-->
@@ -72,10 +72,17 @@
     </div>
 
     <!-- Movie Modal -->
-    <div id="movieModal" class="reveal" data-reveal>
+    <div id="movieModal" class="reveal" data-reveal data-close-on-click="false">
       <div id="movieModalContent">
-        <!-- Dynamically Displayed Elements-->
+        <h5 id="movieModalTitle"></h5>
+        <p id="movieModalDate"></p>
+        <img id="movieModalPoster" src="" alt="">
       </div>
+      <div>
+        <a id="previousMovieButton" class="button" style="margin: 1rem">Previous Movie</a>
+        <a id="nextMovieButton" class="button" style="margin: 1rem">Next Movie</a>
+      </div>
+      <textarea id="movieModalOverview"></textarea>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
