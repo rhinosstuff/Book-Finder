@@ -1,0 +1,43 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root {
+    --forest:#4a6741;
+    --licorice: #251e18;
+    --royalBlue: #1B4079;
+    --goldenrod: #dbad42;
+}
+
+* {
+    font-size: 18px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--licorice);
+    color: var(--forest);
+    padding: 40px;
+}
+
+.header h1 {
+    padding-left: 40px;
+    font-family: "Pacifico", cursive;
+}
+
+.footer {
+   background-color: var(--licorice);
+   text-shadow: -2px 2px var(--goldenrod);
+   padding: 25px;
+   text-align: center;
+}
+
+.footer a {
+    color: var(--forest);
+    margin-right: 100px;
+    font-weight: bolder;
+}
