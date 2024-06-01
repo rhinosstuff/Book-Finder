@@ -48,3 +48,8 @@ function searchBooks(query, displayFunction) {
       console.error('There was a problem with the fetch operation:', error)
     })
 }
+
+// intitle: Returns results where the text following this keyword is found in the title.
+// inauthor: Returns results where the text following this keyword is found in the author.
+// inpublisher: Returns results where the text following this keyword is found in the publisher.
+// subject: Returns results where the text following this keyword is listed in the category list of the volume.

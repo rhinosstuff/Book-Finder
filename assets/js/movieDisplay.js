@@ -52,7 +52,3 @@ previousMovieButton.addEventListener('click', function() {
   }
   movieModal(movieList, movieIndex)
 })
-// Clear modal content when closed
-// $('#movieModal').on('closed.zf.reveal', function() {
-//   movieModalContent.innerHTML = ""
-// })

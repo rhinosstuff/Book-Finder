@@ -108,13 +108,14 @@ bookButton.addEventListener('click', function(event) {
   if (bookInput.value === '') {
     // displayAlert('Please enter a valid search.')    
   } else {
+    
     searchQuery = bookInput.value.split(' ').join('+')
     searchBooks(searchQuery, 'bookDisplay')
   }
   bookInput.value = ''
 })
 
-// Event listener for the genreDropdown click
+// Event listener to open genreDropdown
 bookDropdown.addEventListener('click', function(event) {
   event.preventDefault()
   event.stopPropagation()
@@ -123,25 +124,21 @@ bookDropdown.addEventListener('click', function(event) {
   if (selectedValue) {
     // Close the dropdown
     bookDropdown.classList.remove('is-open')
+    startIndex = Math.floor(Math.random() * 1000)
     
     // Open the modal
-    searchBooks('subject:' + selectedValue, 'bookModalDisplay')
-    
+    searchBooks(`subject=${selectedValue}`, 'bookModalDisplay')
+    console.log('startIndex' + startIndex)
+    startIndex = 0
     let modal = new Foundation.Reveal($('#bookModal'))
     modal.open()
   }
 })
 
 // Event listner to close genreDropdown when clicked off
-document.addEventListener('click', function(event) {
-  
+document.addEventListener('click', function(event) { 
   // Check if the click is outside the dropdown
   if (!bookDropdown.contains(event.target)) {
     bookDropdown.classList.remove('is-open')
   }
-})
-
-// Clear modal content when closed
-$('#bookModal').on('closed.zf.reveal', function() {
-  bookModalContent.innerHTML = ""
 })
