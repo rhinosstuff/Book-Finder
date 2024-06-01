@@ -26,11 +26,13 @@ function searchMovies(query) {
     .then(data => {
       // Check if data is available
       if (!data.results || data.results.length === 0) {
+        noMovieModal()
         return
       }
       
       movieList = data.results
       movieIndex = 0
+      console.log('empty stuff' + movieList)
       movieModal(movieList, movieIndex)
 
       // Displays what we are recieving in the console
