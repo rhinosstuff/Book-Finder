@@ -10,10 +10,12 @@ const movieModalOverview = document.getElementById('movieModalOverview')
 function movieModal(movieList, movieIndex) {
   let item = movieList[movieIndex]
   
+  // Displays movie title
   movieModalTitle.textContent = item.title
+  // Displays movie release date
   movieModalDate.textContent = 'Release Date: ' + item.release_date
 
-  // Only create an img element if poster_path is available
+  // Displays movie poster & checks if poster_path exsits if not adds generic img
   if (item.poster_path) {
     movieModalPoster.src = `https://image.tmdb.org/t/p/w500${item.poster_path}`
     movieModalPoster.alt = `Movie Poster of: ${movieModalTitle.textContent}`
@@ -24,6 +26,7 @@ function movieModal(movieList, movieIndex) {
     movieModalPoster.alt = '404 Image'
   }
 
+  // Creates buttons if more than 1 movie in movieList hides them if only 1
   if (movieList.length > 1) {
     nextMovieButton.style.visibility = 'visible'
     previousMovieButton.style.visibility = 'visible'
@@ -32,10 +35,11 @@ function movieModal(movieList, movieIndex) {
     previousMovieButton.style.visibility = 'hidden'
   }
 
+  // Displays movie overview
   movieModalOverview.textContent = item.overview
 }
 
-// No movie found
+// No movie found displays generic content
 function noMovieModal() {
   
   movieModalTitle.textContent = 'Seems to be no movie!'
@@ -50,7 +54,7 @@ function noMovieModal() {
   previousMovieButton.style.visibility = 'hidden'
 }
 
-// Event listener for dynamically displayed book titles
+// Event listener for dynamically displayed book-titles being clicked
 mainDisplay.addEventListener('click', function(event) {
   if (event.target.classList.contains('movie-click')) {
     const title = event.target.textContent.split(' ').join('+')
@@ -60,19 +64,26 @@ mainDisplay.addEventListener('click', function(event) {
   }
 })
 
+// Lets the user cycle through the movies if more than 1 in movieList
 nextMovieButton.addEventListener('click', function() {
+  // Increase index by 1
   movieIndex++
+  
+  // Loop back to the first movie if the end is reached
   if (movieIndex >= movieList.length) {
-    movieIndex = 0 // Loop back to the first movie if the end is reached
+    movieIndex = 0 
   }
   movieModal(movieList, movieIndex)
 })
 
+// Lets the user cycle through the movies if more than 1 in movieList
 previousMovieButton.addEventListener('click', function() {
   if (movieIndex > 0) {
+    // Decreases index by 1
     movieIndex--
   } else {
-    movieIndex = movieList.length-1 // Loop back to the first movie if the end is reached
+    // Loop back to the last movie if the beginning is reached
+    movieIndex = movieList.length-1 
     console.log('Movie Index: ' + movieIndex)
     console.log('MovieList Length: ' + movieList.length)
   }

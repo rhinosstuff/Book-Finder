@@ -11,10 +11,9 @@ function searchBooks(query, displayFunction) {
   // Define the base Uri for the Google Books API
   const booksApiUri = 'https://www.googleapis.com/books/v1/volumes?q='
   // Applying filters to uri
-  const uriFilters = `&maxResults=${maxResults}&startIndex=${startIndex}&orderBy=${orderBy}&projection=${projection}&key=${key}`
-  // Construct the full Uri with the search query
+  const uriFilters = `&filter=${filter}&maxResults=${maxResults}&startIndex=${startIndex}&orderBy=${orderBy}&projection=${projection}&key=${key}`
+  // Constructing the full Uri with the search query
   const fullUri = booksApiUri + query + uriFilters
-  console.log(fullUri)
 
   // Perform the fetch request
   fetch(fullUri)
@@ -34,28 +33,25 @@ function searchBooks(query, displayFunction) {
 
       // Call the appropriate display function based on the context
       if (displayFunction === 'bookDisplay') {
-        console.log('startIndex: ' + startIndex)
         startIndex = data.items.length + Number(localStorage.getItem('mainIndexLS'))
         localStorage.setItem('mainIndexLS', startIndex)
-        console.log('startIndex + mainIndexLS: ' + startIndex)
+        // Displays the data we are recieving in the console
+        console.log('This is the BOOK data:', data)
         bookDisplay(data)
       } else if (displayFunction === 'bookModalDisplay') {
-        console.log('startIndex: ' + startIndex)
         startIndex = data.items.length + Number(localStorage.getItem('modalIndexLS'))
         localStorage.setItem('modalIndexLS', startIndex)
-        console.log('startIndex + modalIndexLS: ' + startIndex)
+        // Displays the data we are recieving in the console
+        console.log('This is the BOOK-MODAL data:', data)
         bookModalDisplay(data)
       }
-      
-
-      // Displays what we are recieving in the console
-      console.log('This is the BOOK data:', data)
     })
     .catch(error => {
       // Handle any errors that occurred during the fetch
       console.error('There was a problem with the fetch operation:', error)
     })
 }
+
 
 // intitle: Returns results where the text following this keyword is found in the title.
 // inauthor: Returns results where the text following this keyword is found in the author.
