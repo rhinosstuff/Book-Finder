@@ -3,7 +3,7 @@ const moviesApiUri = 'https://api.themoviedb.org/3/search/movie'
 // TMDB API key
 const apiKey = '8f28bcba394943dd4a6e637ef1ad8c83'
 
-const movieMain = document.getElementById('movieMain')
+// These keep track of the movies if more than 1 in the que
 let movieList = []
 let movieIndex = 0
 
@@ -26,13 +26,13 @@ function searchMovies(query) {
     .then(data => {
       // Check if data is available
       if (!data.results || data.results.length === 0) {
+        // Populates a generic no movie found modal
         noMovieModal()
         return
       }
       
       movieList = data.results
       movieIndex = 0
-      console.log('empty stuff' + movieList)
       movieModal(movieList, movieIndex)
 
       // Displays what we are recieving in the console
